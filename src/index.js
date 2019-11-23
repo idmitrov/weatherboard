@@ -1,17 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
 
 import './index.scss';
 
 import App from './app/App';
 import history from './utils/history.utils';
+import store from './app/App.store';
 
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <Router history={history}>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </Router>,
   document.getElementById('root'),
 );
