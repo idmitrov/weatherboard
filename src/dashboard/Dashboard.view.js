@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 
 import { fetchForecastForFiveDays, setForecastForFiveDays } from './Dashboard.actions';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 const renderToday = (today, city, t) => {
   const sunrise = new Date(city.sunrise * 1000);
@@ -52,7 +52,7 @@ const renderToday = (today, city, t) => {
       </Card>
     </Grid>
   );
-}
+};
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -68,8 +68,6 @@ const Dashboard = () => {
 
     fetchForecastData();
   }, [dispatch]);
-
-  // console.log(list);
 
   return (
     <div>
