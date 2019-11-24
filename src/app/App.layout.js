@@ -27,13 +27,13 @@ import { routes } from './App.routes';
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles(theme => {
+const useStyles = makeStyles((theme) => {
   return {
     root: {
       display: 'flex',
     },
     toolbar: {
-      paddingRight: 24, // keep right padding when drawer closed
+      paddingRight: 24,
     },
     toolbarIcon: {
       display: 'flex',
