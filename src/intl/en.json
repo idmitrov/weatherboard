@@ -1,7 +1,10 @@
 {
   "en-US": {
     "translation": {
-      "dashboard.heading.text": "Dashboard"
+      "forecast.today": "Today",
+      "forecast.countryName": "Country",
+      "forecast.sunrise": "Sunrise",
+      "forecast.sunset": "Sunset"
     }
   }
 }

@@ -1,0 +1,11 @@
+{
+  "bg-BG": {
+    "translation": {
+      "forecast.today": "Днес",
+      "forecast.countryName": "Държава",
+      "forecast.sunrise": "Изгрев {{hours}}:{{minutes}} AM",
+      "forecast.sunset": "Залез {{hours}}:{{minutes}} PM",
+      "forecast.description.Clouds": "Облачно"
+    }
+  }
+}
