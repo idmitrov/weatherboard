@@ -184,7 +184,7 @@ const AppLayout = ({ heading, children }) => {
       <main className={classes.content}>
         <div className={classes.appBarSpacer}></div>
 
-        <Container maxWidth="lg" className={classes.container}>
+        <Container maxWidth="xl" className={classes.container}>
           {children}
         </Container>
       </main>
