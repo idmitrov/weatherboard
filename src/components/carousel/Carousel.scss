@@ -1,0 +1,25 @@
+.slick-slider {
+  padding: 5px;
+}
+
+.slick-prev {
+  left: 0;
+}
+
+.slick-next {
+  right: 15px;
+}
+
+.slick-prev,
+.slick-next {
+  z-index: 9999;
+
+  &:before {
+    font-size: 40px;
+    color: #3f51b5;
+  }
+}
+
+.slick-slide {
+  padding: 15px;
+}
