@@ -62,7 +62,7 @@ const Dashboard = () => {
                     date={date}
                     dayName={day}
                     description={description}
-                    image={imageUrl}
+                    imageUrl={imageUrl}
                   />
                 );
               })
