@@ -45,18 +45,24 @@ const Dashboard = () => {
         list && list.length ? (
           <Carousel slidesToShow={4} slidesToScroll={4}>
             {
-              uniqueDays.map((day, index) => {
-                const dayWeather = day.weather[0];
-                const date = new Date(day.dt * 1000);
+              uniqueDays.map((currentDay, index) => {
+                const currentDayWeather = currentDay.weather[0];
+                const currentDayDate = new Date(currentDay.dt * 1000);
+
+                const date = t('date.ddmmyy', { date: currentDayDate.getDate(), month: currentDayDate.getMonth(), year: currentDayDate.getFullYear() });
+                const day = t(`week.dayName.${currentDayDate.getDay()}`);
+                const description = t(`forecast.description.${currentDayWeather.main.toLowerCase()}`);
+                const imageUrl = `${process.env.PUBLIC_URL}/weather-icons/${currentDayWeather.icon}.png`;
+                const temperature = `${Math.round(currentDay.main.temp)} °C`;
 
                 return (
                   <WeatherDayCard
                     key={index}
-                    temperature={`${Math.round(day.main.temp)} °C`}
-                    date={t('date.ddmmyy', { date: date.getDate(), month: date.getMonth(), year: date.getFullYear() })}
-                    dayName={t(`week.dayName.${date.getDay()}`)}
-                    description={t(`forecast.description.${dayWeather.main.toLowerCase()}`)}
-                    image={`${process.env.PUBLIC_URL}/weather-icons/${dayWeather.icon}.png`}
+                    temperature={temperature}
+                    date={date}
+                    dayName={day}
+                    description={description}
+                    image={imageUrl}
                   />
                 );
               })
