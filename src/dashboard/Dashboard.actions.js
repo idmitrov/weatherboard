@@ -1,7 +1,8 @@
 import dashboardEndpoints from './Dashboard.endpoints';
 
 export const dashboardActionTypes = {
-  fetchForecastForFiveDays: 'FORECAST_FIVE_DAYS_FETCH'
+  fetchForecastForFiveDays: 'FORECAST_FIVE_DAYS_FETCH',
+  setForecastForFiveDays: 'FORECAST_FIVE_DAYS_SET'
 };
 
 export const fetchForecastForFiveDays = () => {
@@ -15,3 +16,14 @@ export const fetchForecastForFiveDays = () => {
 
   return action;
 };
+
+export const setForecastForFiveDays = (data) => {
+  const { list, city } = data;
+
+  const action = {
+    type: dashboardActionTypes.fetchForecastForFiveDays,
+    payload: { list, city }
+  };
+
+  return action;
+}
