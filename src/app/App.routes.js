@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { Switch, Route, Link } from 'react-router-dom';
+import { Dashboard } from '@material-ui/icons';
+
 import DashboardView from '../dashboard/Dashboard.view';
 
 const NotFound = () => {
@@ -13,17 +15,21 @@ const NotFound = () => {
   );
 };
 
-const routes = [
+export const routes = [
   {
     key: "dashboard",
+    label: "Dashboard",
     path: '/',
     isPrivate: false,
     component: DashboardView,
     strict: true,
     exact: true,
+    includeInDrawer: true,
+    drawerIcon: Dashboard,
   },
   {
     key: "notfound",
+    label: "Not found",
     path: '*',
     isPrivate: false,
     component: NotFound,
@@ -36,9 +42,15 @@ const AppRoutes = () => {
   return (
     <Switch>
       {
-        routes.map(({ isPrivate, ...route }) => {
+        routes.map(({ isPrivate, key, path, component, strict, exact }) => {
           return isPrivate ? (null) : (
-            <Route {...route} />
+            <Route
+              key={key}
+              path={path}
+              component={component}
+              strict={strict}
+              exact={exact}
+            />
           );
         })
       }

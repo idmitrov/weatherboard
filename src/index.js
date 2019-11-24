@@ -16,7 +16,7 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <Router history={history}>
     <Provider store={store}>
-      <App />
+      <App name="Weatherboard" version="0.0.1" copyright="idmitrov" />
     </Provider>
   </Router>,
   document.getElementById('root'),

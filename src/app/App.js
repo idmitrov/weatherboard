@@ -8,13 +8,13 @@ import './App.scss';
 
 const theme = createMuiTheme();
 
-function App() {
+function App({ name, version, copyright }) {
   return (
-    <div id="app">
+    <div id="app" data-app-version={version} data-app-copyright={copyright}>
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
 
-        <Layout>
+        <Layout heading={name}>
           <Content />
         </Layout>
       </MuiThemeProvider>

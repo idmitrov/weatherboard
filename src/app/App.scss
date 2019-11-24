@@ -1,0 +1,9 @@
+#app {
+  &:after {
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    z-index: -100;
+    content: "Version: " attr(data-app-version) ", " "Copyright reserved to " attr(data-app-copyright);
+  }
+}
