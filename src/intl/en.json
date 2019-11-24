@@ -1,11 +1,26 @@
 {
   "en-US": {
     "translation": {
+      "date.ddmmyy": "{{date}}/{{month}}/{{year}}",
+      "week.dayName.0": "Sunday",
+      "week.dayName.1": "Monday",
+      "week.dayName.2": "Tuesday",
+      "week.dayName.3": "Wednesday",
+      "week.dayName.4": "Thursday",
+      "week.dayName.5": "Friday",
+      "week.dayName.6": "Saturday",
       "forecast.today": "Today",
       "forecast.countryName": "Country",
       "forecast.sunrise": "Sunrise {{hours}}:{{minutes}} AM",
       "forecast.sunset": "Sunset {{hours}}:{{minutes}} PM",
-      "forecast.description.Clouds": "Cloudy"
+      "forecast.description.clouds": "Cloudy",
+      "forecast.description.rain": "Rain",
+      "forecast.description.clear": "Clear",
+      "forecast.description.snow": "Snow",
+      "forecast.description.drizzle": "Drizzle",
+      "forecast.description.drizzle.thunderstorm": "Thunder storm",
+      "forecast.description.drizzle.mist": "Mist",
+      "forecast.description.drizzle.fog": "Fog"
     }
   }
 }

@@ -1,11 +1,26 @@
 {
   "bg-BG": {
     "translation": {
+      "date.ddmmyy": "{{date}}/{{month}}/{{year}}",
+      "week.dayName.0": "Неделя",
+      "week.dayName.1": "Понеделник",
+      "week.dayName.2": "Вторник",
+      "week.dayName.3": "Сряда",
+      "week.dayName.4": "Четвъртък",
+      "week.dayName.5": "Петък",
+      "week.dayName.6": "Събота",
       "forecast.today": "Днес",
       "forecast.countryName": "Държава",
       "forecast.sunrise": "Изгрев {{hours}}:{{minutes}} AM",
       "forecast.sunset": "Залез {{hours}}:{{minutes}} PM",
-      "forecast.description.Clouds": "Облачно"
+      "forecast.description.clouds": "Облачно",
+      "forecast.description.rain": "Дъждовно",
+      "forecast.description.clear": "Ясно",
+      "forecast.description.snow": "Сняг",
+      "forecast.description.drizzle": "Превалявания",
+      "forecast.description.drizzle.thunderstorm": "Гръмотевици",
+      "forecast.description.drizzle.mist": "Мъгла",
+      "forecast.description.drizzle.fog": "Мъгла"
     }
   }
 }
