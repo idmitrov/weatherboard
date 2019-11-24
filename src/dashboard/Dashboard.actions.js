@@ -21,7 +21,7 @@ export const setForecastForFiveDays = (data) => {
   const { list, city } = data;
 
   const action = {
-    type: dashboardActionTypes.fetchForecastForFiveDays,
+    type: dashboardActionTypes.setForecastForFiveDays,
     payload: { list, city }
   };
 

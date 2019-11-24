@@ -6,7 +6,7 @@ const dashboardDefaults = {
 
 const dashboardReducer = (state = dashboardDefaults, action = {}) => {
   switch (action.type) {
-    case dashboardActionTypes.fetchForecastForFiveDays: {
+    case dashboardActionTypes.setForecastForFiveDays: {
       const newState = {
         fiveDaysForecast: action.payload
       };
