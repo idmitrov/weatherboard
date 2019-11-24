@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
@@ -9,50 +9,71 @@ import {
   Typography,
 } from '@material-ui/core';
 
-import { fetchForecastForFiveDays, setForecastForFiveDays } from './Dashboard.actions';
 import { useTranslation } from 'react-i18next';
 
-const renderToday = (today, city, t) => {
-  const sunrise = new Date(city.sunrise * 1000);
-  const sunset = new Date(city.sunset * 1000);
-  const todayWeather = today.weather[0];
+import Carousel from "../components/carousel/Carousel.component";
+import { fetchForecastForFiveDays, setForecastForFiveDays } from './Dashboard.actions';
+
+const renderWeek = (week, t) => {
+  const uniqueDays = week.reduce((days, day) => {
+    const date = day.dt_txt.split(' ')[0];
+    const isExistingDay = days.find((d) => d.dt_txt.includes(date));
+
+    if (!isExistingDay) {
+      days.push(day);
+    }
+
+    return days;
+  }, []);
 
   return (
-    <Grid item xs={12} sm={6} md={4}>
-      <Card>
-        <CardHeader title={t('forecast.today')}></CardHeader>
+    <Grid item xs={12} md={12}>
+      <Carousel slidesToShow={4} slidesToScroll={4}>
+        {
+          uniqueDays.map((day, index) => {
+            const dayWeather = day.weather[0];
+            const date = new Date(day.dt * 1000);
 
-        <CardContent>
-          <Grid container justify="center">
-            <Grid item>
-              {/* IMAGE */}
-              <img src={`${process.env.PUBLIC_URL}/weather-icons/${todayWeather.icon}.png`} alt="Weather icon" />
+            return (
+              <div key={index}>
+                <Card>
+                  <CardHeader title={
+                    <Fragment>
+                      <Typography variant="h5">{t(`week.dayName.${date.getDay()}`)}</Typography>
 
-              {/* DESCRIPTION */}
-              <Typography variant="subtitle1" component="p" align="center">
-                {t(`forecast.description.${todayWeather.main}`)}
-              </Typography>
-            </Grid>
-          </Grid>
+                      <Typography variant="subtitle1">
+                        {t('date.ddmmyy', { date: date.getDate(), month: date.getMonth(), year: date.getFullYear() })}
+                      </Typography>
+                    </Fragment>
+                  }>
+                  </CardHeader>
 
-          {/* LOCATION */}
-          <Typography>
-            {city.country}, {city.name}
-          </Typography>
+                  <CardContent>
+                    <Grid container justify="center">
+                      <Grid item>
+                        {/* IMAGE */}
+                        <Typography variant="h4" component="p" align="center">
+                          {`${Math.round(day.main.temp)} °C`}
+                        </Typography>
 
-          {/* META */}
-          <Typography>
-            {t('forecast.sunrise', { hours: sunrise.getHours(), minutes: sunrise.getMinutes() })}
-          </Typography>
+                        <img src={`${process.env.PUBLIC_URL}/weather-icons/${dayWeather.icon}.png`} alt="Weather icon" />
 
-          <Typography>
-            {t('forecast.sunset', { hours: sunset.getHours(), minutes: sunset.getMinutes() })}
-          </Typography>
-        </CardContent>
-      </Card>
+                        {/* DESCRIPTION */}
+                        <Typography variant="subtitle1" component="p" align="center">
+                          {t(`forecast.description.${dayWeather.main.toLowerCase()}`)}
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </CardContent>
+                </Card>
+              </div>
+            );
+          })
+        }
+      </Carousel>
     </Grid>
   );
-};
+}
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -63,6 +84,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchForecastData = async () => {
       const forecastData = await dispatch(fetchForecastForFiveDays());
+
       dispatch(setForecastForFiveDays(forecastData));
     };
 
@@ -72,15 +94,7 @@ const Dashboard = () => {
   return (
     <div>
       <Grid container spacing={4}>
-        {city && city.id && renderToday(list[0], city, t)}
-
-        <Grid item xs={12} sm={6} md={4}>
-          <Card>TODO</Card>
-        </Grid>
-
-        <Grid item xs={12} sm={6} md={4}>
-          <Card>TODO</Card>
-        </Grid>
+        {city && city.id && renderWeek(list, t)}
       </Grid>
     </div>
   );
