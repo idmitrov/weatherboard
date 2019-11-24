@@ -1,5 +1,5 @@
 import React from 'react';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
+import { MuiThemeProvider, createMuiTheme, CssBaseline } from '@material-ui/core';
 
 import Layout from './App.layout';
 import Content from './App.routes';
@@ -12,6 +12,8 @@ function App() {
   return (
     <div id="app">
       <MuiThemeProvider theme={theme}>
+        <CssBaseline />
+
         <Layout>
           <Content />
         </Layout>
