@@ -9,7 +9,7 @@ import {
   Typography,
 } from '@material-ui/core';
 
-const WeatherDayCard = ({ date, dayName, description, temperature, imageUrl }) => {
+const WeatherDayCard = ({ date, dayName, description, temperature, imageUrl, useFarenheit }) => {
   return (
     <Card>
       <CardHeader title={
@@ -27,7 +27,7 @@ const WeatherDayCard = ({ date, dayName, description, temperature, imageUrl }) =
         <Grid container justify="center">
           <Grid item>
             <Typography variant="h4" component="p" align="center">
-              {temperature}
+              {`${temperature} °${useFarenheit ? 'F' : 'C'}`}
             </Typography>
 
             <img src={imageUrl} alt="Weather icon" />
@@ -43,11 +43,12 @@ const WeatherDayCard = ({ date, dayName, description, temperature, imageUrl }) =
 };
 
 WeatherDayCard.propTypes = {
-  temperature: propTypes.string.isRequired,
+  temperature: propTypes.number.isRequired,
   date: propTypes.string.isRequired,
   dayName: propTypes.string.isRequired,
   description: propTypes.string.isRequired,
   imageUrl: propTypes.string.isRequired,
+  useFarenheit: propTypes.bool
 };
 
 export default WeatherDayCard;

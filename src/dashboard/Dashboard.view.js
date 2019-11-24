@@ -53,7 +53,7 @@ const Dashboard = () => {
                 const day = t(`week.dayName.${currentDayDate.getDay()}`);
                 const description = t(`forecast.description.${currentDayWeather.main.toLowerCase()}`);
                 const imageUrl = `${process.env.PUBLIC_URL}/weather-icons/${currentDayWeather.icon}.png`;
-                const temperature = `${Math.round(currentDay.main.temp)} °C`;
+                const temperature = Math.round(currentDay.main.temp);
 
                 return (
                   <WeatherDayCard
