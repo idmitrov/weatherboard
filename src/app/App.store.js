@@ -1,15 +1,17 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import thunkMiddleware from 'redux-thunk';
+
+import dashboardReducer from '../dashboard/Dashboard.reducer';
 
 const rootReducer = combineReducers({
-  dashboard: () => { return null }
-  // TODO: Add reducers
+  dashboard: dashboardReducer
 });
 
 const store = createStore(
   rootReducer,
   composeWithDevTools(
-    // TODO: Add middlewares
+    applyMiddleware(thunkMiddleware)
   )
 );
 
