@@ -1,7 +1,10 @@
 import { dashboardActionTypes } from './Dashboard.actions';
 
 const dashboardDefaults = {
-  fiveDaysForecast: null
+  fiveDaysForecast: {
+    list: [],
+    city: {}
+  }
 };
 
 const dashboardReducer = (state = dashboardDefaults, action = {}) => {
