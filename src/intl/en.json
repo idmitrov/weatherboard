@@ -3,8 +3,9 @@
     "translation": {
       "forecast.today": "Today",
       "forecast.countryName": "Country",
-      "forecast.sunrise": "Sunrise",
-      "forecast.sunset": "Sunset"
+      "forecast.sunrise": "Sunrise {{hours}}:{{minutes}} AM",
+      "forecast.sunset": "Sunset {{hours}}:{{minutes}} PM",
+      "forecast.description.Clouds": "Cloudy"
     }
   }
 }
