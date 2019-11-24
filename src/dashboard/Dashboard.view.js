@@ -25,8 +25,8 @@ const filterUniqueDays = (days) => {
 const Dashboard = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-
   const { list } = useSelector((state) => state.dashboard.fiveDaysForecast);
+
   const uniqueDays = filterUniqueDays(list);
 
   useEffect(() => {
