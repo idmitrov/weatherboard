@@ -6,6 +6,7 @@ import { Router } from 'react-router-dom';
 
 import 'typeface-roboto';
 import './index.scss';
+import './i18n';
 
 import App from './app/App';
 import history from './shared/history.utils';

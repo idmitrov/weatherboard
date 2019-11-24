@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { Trans } from 'react-i18next';
+import { Typography } from '@material-ui/core';
 
 import { fetchForecastForFiveDays, setForecastForFiveDays } from './Dashboard.actions';
 
@@ -17,7 +19,11 @@ const Dashboard = () => {
   }, [dispatch]);
 
 	return (
-		<div>Dashboard</div>
+		<div>
+      <Typography>
+        <Trans>dashboard.heading.text</Trans>
+      </Typography>
+    </div>
 	);
 };
 
