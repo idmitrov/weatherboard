@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
 
+import 'typeface-roboto';
 import './index.scss';
 
 import App from './app/App';
