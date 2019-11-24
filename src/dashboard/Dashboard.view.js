@@ -18,18 +18,18 @@ const renderToday = (today, city, t) => {
   const todayWeather = today.weather[0];
 
   return (
-    <Grid item xs={12} md={4}>
+    <Grid item xs={12} sm={6} md={4}>
       <Card>
         <CardHeader title={t('forecast.today')}></CardHeader>
 
         <CardContent>
-          <Grid container>
+          <Grid container justify="center">
             <Grid item>
               {/* IMAGE */}
               <img src={`${process.env.PUBLIC_URL}/weather-icons/${todayWeather.icon}.png`} alt="Weather icon" />
 
               {/* DESCRIPTION */}
-              <Typography>
+              <Typography variant="subtitle1" component="p" align="center">
                 {t(`forecast.description.${todayWeather.main}`)}
               </Typography>
             </Grid>
@@ -74,11 +74,11 @@ const Dashboard = () => {
       <Grid container spacing={4}>
         {city && city.id && renderToday(list[0], city, t)}
 
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Card>TODO</Card>
         </Grid>
 
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Card>TODO</Card>
         </Grid>
       </Grid>
