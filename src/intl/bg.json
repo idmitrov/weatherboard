@@ -18,9 +18,9 @@
       "forecast.description.clear": "Ясно",
       "forecast.description.snow": "Сняг",
       "forecast.description.drizzle": "Превалявания",
-      "forecast.description.drizzle.thunderstorm": "Гръмотевици",
-      "forecast.description.drizzle.mist": "Мъгла",
-      "forecast.description.drizzle.fog": "Мъгла",
+      "forecast.description.thunderstorm": "Гръмотевици",
+      "forecast.description.mist": "Мъгла",
+      "forecast.description.fog": "Мъгла",
       "forecast.windSpeed": "Скорост на вятъра"
     }
   }

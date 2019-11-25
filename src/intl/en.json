@@ -18,9 +18,9 @@
       "forecast.description.clear": "Clear",
       "forecast.description.snow": "Snow",
       "forecast.description.drizzle": "Drizzle",
-      "forecast.description.drizzle.thunderstorm": "Thunder storm",
-      "forecast.description.drizzle.mist": "Mist",
-      "forecast.description.drizzle.fog": "Fog",
+      "forecast.description.thunderstorm": "Thunder storm",
+      "forecast.description.mist": "Mist",
+      "forecast.description.fog": "Fog",
       "forecast.windSpeed": "Wind speed"
     }
   }
