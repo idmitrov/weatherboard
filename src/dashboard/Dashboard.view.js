@@ -27,7 +27,6 @@ const filterUniqueDays = (days) => {
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-  const { t } = useTranslation();
   const { list, city } = useSelector((state) => state.dashboard.fiveDaysForecast);
 
   const uniqueDays = filterUniqueDays(list);
@@ -59,7 +58,6 @@ const Dashboard = () => {
             </Grid>
 
             <Grid item xs={12}>
-
               <Carousel slidesToShow={4} slidesToScroll={4}>
                 {
                   uniqueDays.map((currentDay, index) => {
