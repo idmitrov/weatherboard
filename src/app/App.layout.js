@@ -18,6 +18,7 @@ import {
   Typography,
   IconButton,
   makeStyles,
+  List,
 } from '@material-ui/core';
 
 import {
@@ -216,8 +217,10 @@ const AppLayout = ({ heading, children }) => {
         <DialogTitle id="language-dialog-title">{t('global.language')}</DialogTitle>
 
         <DialogContent>
-          <p>BG</p>
-          <p>EN</p>
+          <List aria-label="choose language">
+            <ListItem button>Български</ListItem>
+            <ListItem button>English</ListItem>
+          </List>
         </DialogContent>
       </Dialog>
     </div>
