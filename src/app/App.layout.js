@@ -77,6 +77,10 @@ const useStyles = makeStyles((theme) => {
     title: {
       flexGrow: 1,
     },
+    drawerLink: {
+      textDecoration: 'none',
+      color: '#000'
+    },
     drawerPaper: {
       position: 'relative',
       whiteSpace: 'nowrap',
@@ -172,7 +176,7 @@ const AppLayout = ({ heading, children }) => {
               const drawerItemText = t(`route.${route.key}`);
 
               return (
-                <Link key={route.key} to={route.path} style={{ textDecoration: 'none' }}>
+                <Link className={classes.drawerLink} key={route.key} to={route.path}>
                   <Tooltip title={isDrawerOpened ? '' : drawerItemText}>
                     <ListItem className={classes.menuItem} button>
                       {
@@ -183,7 +187,7 @@ const AppLayout = ({ heading, children }) => {
                         ) : (null)
                       }
 
-                      <ListItemText primary={drawerItemText} />
+                      <ListItemText  primary={drawerItemText} />
                     </ListItem>
                   </Tooltip>
                 </Link>
