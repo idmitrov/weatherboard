@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Grid } from '@material-ui/core';
+import { Grid, Grow } from '@material-ui/core';
 
 import Carousel from "../components/carousel/Carousel.component";
 import WeatherDayCard from '../components/weather-day-card/WeatherDayCard.component';
@@ -48,36 +48,40 @@ const Dashboard = () => {
         city && city.id ? (
           <Grid container>
             <Grid item xs={12}>
-              <WeatherCityBar
-                name={city.name}
-                country={city.country}
-                sunrise={new Date(city.sunrise * 1000)}
-                sunset={new Date(city.sunset * 1000)}
-              />
+              <Grow in={true} timeout={1000}>
+                <WeatherCityBar
+                  name={city.name}
+                  country={city.country}
+                  sunrise={new Date(city.sunrise * 1000)}
+                  sunset={new Date(city.sunset * 1000)}
+                />
+              </Grow>
             </Grid>
 
             <Grid item xs={12}>
-              <Carousel slidesToShow={5} slidesToScroll={5}>
-                {
-                  uniqueDays.map((currentDay, index) => {
-                    const currentDayWeather = currentDay.weather[0];
-                    const currentDayDate = new Date(currentDay.dt * 1000);
+              <Grow in={true} timeout={1000}>
+                <Carousel slidesToShow={5} slidesToScroll={5}>
+                  {
+                    uniqueDays.map((currentDay, index) => {
+                      const currentDayWeather = currentDay.weather[0];
+                      const currentDayDate = new Date(currentDay.dt * 1000);
 
-                    return (
-                      <WeatherDayCard
-                        key={index}
-                        temperature={currentDay.main.temp}
-                        minTemperature={currentDay.main.temp_min}
-                        maxTemperature={currentDay.main.temp_max}
-                        humidity={currentDay.main.humidity}
-                        date={currentDayDate}
-                        description={currentDayWeather.main}
-                        iconName={currentDayWeather.icon}>
-                      </WeatherDayCard>
-                    );
-                  })
-                }
-              </Carousel>
+                      return (
+                        <WeatherDayCard
+                          key={index}
+                          temperature={currentDay.main.temp}
+                          minTemperature={currentDay.main.temp_min}
+                          maxTemperature={currentDay.main.temp_max}
+                          humidity={currentDay.main.humidity}
+                          date={currentDayDate}
+                          description={currentDayWeather.main}
+                          iconName={currentDayWeather.icon}>
+                        </WeatherDayCard>
+                      );
+                    })
+                  }
+                </Carousel>
+              </Grow>
             </Grid>
 
             <Grid item xs={12} md={6}>

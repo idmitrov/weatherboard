@@ -16,11 +16,11 @@ const useStyles = makeStyles(() => {
   };
 })
 
-const WeatherCityBar = ({ name, country, sunrise, sunset }) => {
+const WeatherCityBar = ({ name, country, sunrise, sunset, ...rest }) => {
   const classes = useStyles();
 
   return (
-    <Card>
+    <Card {...rest}>
       <AppBar position="static" color="default">
         <Toolbar>
           <Grid container justify="space-between" alignItems="center">
