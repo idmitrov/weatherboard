@@ -47,7 +47,7 @@ const useStyles = makeStyles(() => {
   };
 });
 
-const WeatherDayCard = ({ date, description, temperature, minTemperature, maxTemperature, iconName, useImperial, humidity }) => {
+const WeatherDayCard = ({ date, description, temperature, minTemperature, maxTemperature, iconName, useImperial, humidity, pressure }) => {
   const { t } = useTranslation();
   const classes = useStyles();
 
@@ -94,6 +94,7 @@ const WeatherDayCard = ({ date, description, temperature, minTemperature, maxTem
         <Typography>{`${t('forecast.min')}: ${Math.round(minTemperature)}${temUnitSymbol}`}</Typography>
         <Typography>{`${t('forecast.max')}: ${Math.round(maxTemperature)}${temUnitSymbol}`}</Typography>
         <Typography>{`${t('forecast.humidity')}: ${Math.round(humidity)} %`}</Typography>
+        <Typography>{`${t('forecast.pressure')}: ${Math.round(pressure)} hPa`}</Typography>
       </div>
     </Card>
   );
@@ -107,6 +108,7 @@ WeatherDayCard.propTypes = {
   minTemperature: propTypes.number.isRequired,
   maxTemperature: propTypes.number.isRequired,
   humidity: propTypes.number.isRequired,
+  pressure: propTypes.number.isRequired,
   date: propTypes.instanceOf(Date).isRequired,
   description: propTypes.oneOf([...descriptionTypes, ...descriptionTypes.map((t) => t.toLocaleLowerCase())]).isRequired,
   iconName: propTypes.oneOf(iconTypes).isRequired,

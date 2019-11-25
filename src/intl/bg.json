@@ -26,7 +26,8 @@
       "forecast.windSpeed": "Скорост на вятъра",
       "forecast.min": "Минимална",
       "forecast.max": "Максимална",
-      "forecast.humidity": "Влажност"
+      "forecast.humidity": "Влажност",
+      "forecast.pressure": "Атм. налягане"
     }
   }
 }

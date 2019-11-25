@@ -26,7 +26,8 @@
       "forecast.windSpeed": "Wind speed",
       "forecast.min": "Min",
       "forecast.max": "Max",
-      "forecast.humidity": "Humidity"
+      "forecast.humidity": "Humidity",
+      "forecast.pressure": "Pressure"
     }
   }
 }

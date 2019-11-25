@@ -73,6 +73,7 @@ const Dashboard = () => {
                           minTemperature={currentDay.main.temp_min}
                           maxTemperature={currentDay.main.temp_max}
                           humidity={currentDay.main.humidity}
+                          pressure={currentDay.main.pressure}
                           date={currentDayDate}
                           description={currentDayWeather.main}
                           iconName={currentDayWeather.icon}>
