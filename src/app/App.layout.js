@@ -126,7 +126,7 @@ const useStyles = makeStyles((theme) => {
 const AppLayout = ({ heading, children }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const [isLanguageDialogOpened, setIsLanguageDialogOpened] = useState();
+  const [isLanguageDialogOpened, setIsLanguageDialogOpened] = useState(false);
   const isDrawerOpened = useSelector((state) => state.app.isDrawerOpened);
   const { t } = useTranslation();
 
