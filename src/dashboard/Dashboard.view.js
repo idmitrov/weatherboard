@@ -57,7 +57,7 @@ const Dashboard = () => {
             </Grid>
 
             <Grid item xs={12}>
-              <Carousel slidesToShow={4} slidesToScroll={4}>
+              <Carousel slidesToShow={5} slidesToScroll={5}>
                 {
                   uniqueDays.map((currentDay, index) => {
                     const currentDayWeather = currentDay.weather[0];
