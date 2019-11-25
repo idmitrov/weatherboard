@@ -165,10 +165,11 @@ const AppLayout = ({ heading, children }) => {
           routes.map((route) => {
             if (route.includeInDrawer) {
               const Icon = route.drawerIcon;
+              const drawerItemText = t(`route.${route.key}`);
 
               return (
                 <Link key={route.key} to={route.path} style={{ textDecoration: 'none' }}>
-                  <Tooltip title={isDrawerOpened ? '' : t(`route.${route.key}`)}>
+                  <Tooltip title={isDrawerOpened ? '' : drawerItemText}>
                     <ListItem className={classes.menuItem} button>
                       {
                         Icon ? (
@@ -178,7 +179,7 @@ const AppLayout = ({ heading, children }) => {
                         ) : (null)
                       }
 
-                      <ListItemText primary={route.label} />
+                      <ListItemText primary={drawerItemText} />
                     </ListItem>
                   </Tooltip>
                 </Link>
