@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { Grid } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 
 import Carousel from "../components/carousel/Carousel.component";
 import { fetchForecastForFiveDays, setForecastForFiveDays } from './Dashboard.actions';
 import WeatherDayCard from '../components/weather-day-card/WeatherDayCard.component';
+import WeatherCityBar from '../components/weather-city-bar/WeatherCityBar.component';
 
 const filterUniqueDays = (days) => {
   const uniqueDays = days.reduce((daysMerge, day) => {
@@ -25,7 +27,7 @@ const filterUniqueDays = (days) => {
 const Dashboard = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const { list } = useSelector((state) => state.dashboard.fiveDaysForecast);
+  const { list, city } = useSelector((state) => state.dashboard.fiveDaysForecast);
 
   const uniqueDays = filterUniqueDays(list);
 
@@ -41,6 +43,16 @@ const Dashboard = () => {
 
   return (
     <div>
+      {
+        city && city.id ? (
+          <WeatherCityBar
+            name={city.name}
+            country={city.country}
+            sunrise={new Date(city.sunrise * 1000)}
+            sunset={new Date(city.sunset * 1000)}
+          />
+        ) : (null)}
+
       {
         list && list.length ? (
           <Carousel slidesToShow={4} slidesToScroll={4}>
