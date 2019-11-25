@@ -101,6 +101,9 @@ const iconTypes = ['01d', '01n', '02d', '02n', '03d', '03n', '04d', '04n', '09d'
 
 WeatherDayCard.propTypes = {
   temperature: propTypes.number.isRequired,
+  minTemperature: propTypes.number.isRequired,
+  maxTemperature: propTypes.number.isRequired,
+  humidity: propTypes.number.isRequired,
   date: propTypes.instanceOf(Date).isRequired,
   description: propTypes.oneOf([...descriptionTypes, ...descriptionTypes.map((t) => t.toLocaleLowerCase())]).isRequired,
   iconName: propTypes.oneOf(iconTypes).isRequired,
