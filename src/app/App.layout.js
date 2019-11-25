@@ -19,9 +19,11 @@ import {
 
 import {
   Menu,
-  ChevronLeft
+  ChevronLeft,
+  Language
 } from '@material-ui/icons';
 
+import { useTranslation } from 'react-i18next';
 import { setDrawerOpened } from './App.actions';
 import { routes } from './App.routes';
 
@@ -118,6 +120,7 @@ const AppLayout = ({ heading, children }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const isDrawerOpened = useSelector((state) => state.app.isDrawerOpened);
+  const { t } = useTranslation();
 
   return (
     <div className={classes.root}>
@@ -136,6 +139,12 @@ const AppLayout = ({ heading, children }) => {
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             {heading}
           </Typography>
+
+          <Tooltip placement="top" title={t('global.language')}>
+            <IconButton>
+              <Language style={{color: '#FFF'}} color="inherit" />
+            </IconButton>
+          </Tooltip>
         </Toolbar>
       </AppBar>
 

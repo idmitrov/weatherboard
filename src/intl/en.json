@@ -3,6 +3,7 @@
     "translation": {
       "global.hide": "Hide",
       "global.more": "More",
+      "global.language": "Language",
       "date.ddmmyy": "{{date}}/{{month}}/{{year}}",
       "week.dayName.0": "Sunday",
       "week.dayName.1": "Monday",
