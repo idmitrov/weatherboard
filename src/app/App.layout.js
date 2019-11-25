@@ -168,7 +168,7 @@ const AppLayout = ({ heading, children }) => {
 
               return (
                 <Link key={route.key} to={route.path} style={{ textDecoration: 'none' }}>
-                  <Tooltip title={isDrawerOpened ? '' : route.label}>
+                  <Tooltip title={isDrawerOpened ? '' : t(`route.${route.key}`)}>
                     <ListItem className={classes.menuItem} button>
                       {
                         Icon ? (

@@ -4,6 +4,7 @@
       "global.hide": "Скрий",
       "global.more": "Още",
       "global.language": "Език",
+      "route.dashboard": "Табло",
       "date.ddmmyy": "{{date}}/{{month}}/{{year}}",
       "week.dayName.0": "Неделя",
       "week.dayName.1": "Понеделник",
