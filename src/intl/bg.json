@@ -20,7 +20,8 @@
       "forecast.description.drizzle": "Превалявания",
       "forecast.description.drizzle.thunderstorm": "Гръмотевици",
       "forecast.description.drizzle.mist": "Мъгла",
-      "forecast.description.drizzle.fog": "Мъгла"
+      "forecast.description.drizzle.fog": "Мъгла",
+      "forecast.windSpeed": "Скорост на вятъра"
     }
   }
 }
