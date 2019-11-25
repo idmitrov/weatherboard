@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
@@ -7,6 +7,9 @@ import {
   AppBar,
   Container,
   Drawer,
+  Dialog,
+  DialogTitle,
+  DialogContent,
   Tooltip,
   ListItem,
   ListItemIcon,
@@ -119,6 +122,7 @@ const useStyles = makeStyles((theme) => {
 const AppLayout = ({ heading, children }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const [isLanguageDialogOpened, setIsLanguageDialogOpened] = useState();
   const isDrawerOpened = useSelector((state) => state.app.isDrawerOpened);
   const { t } = useTranslation();
 
@@ -141,8 +145,8 @@ const AppLayout = ({ heading, children }) => {
           </Typography>
 
           <Tooltip placement="top" title={t('global.language')}>
-            <IconButton>
-              <Language style={{color: '#FFF'}} color="inherit" />
+            <IconButton onClick={() => setIsLanguageDialogOpened(!isLanguageDialogOpened)}>
+              <Language style={{ color: '#FFF' }} color="inherit" />
             </IconButton>
           </Tooltip>
         </Toolbar>
@@ -198,6 +202,20 @@ const AppLayout = ({ heading, children }) => {
           {children}
         </Container>
       </main>
+
+      <Dialog
+        aria-labelledby="language-dialog-title"
+        open={isLanguageDialogOpened}
+        fullWidth
+        onClose={() => setIsLanguageDialogOpened(!isLanguageDialogOpened)}
+      >
+        <DialogTitle id="language-dialog-title">{t('global.language')}</DialogTitle>
+
+        <DialogContent>
+          <p>BG</p>
+          <p>EN</p>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 };
