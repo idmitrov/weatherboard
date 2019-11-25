@@ -30,8 +30,7 @@ const Dashboard = () => {
   const { list, city } = useSelector((state) => state.dashboard.fiveDaysForecast);
 
   const uniqueDays = filterUniqueDays(list);
-  const uniqueDaysWind = uniqueDays.map((day) => day.wind)
-    .sort((a, b) => a.speed > b.speed ? 1 : a.speed < b.speed ? -1 : 0);
+  const uniqueDaysWind = uniqueDays.map((day) => day.wind);
 
   useEffect(() => {
     const fetchForecastData = async () => {

@@ -26,6 +26,8 @@ const WeatherWindMeter = ({ data }) => {
   const { t } = useTranslation();
   const classes = useStyles();
 
+  data.sort((a, b) => a.speed > b.speed ? 1 : a.speed < b.speed ? -1 : 0);
+
   return (
     <Fragment>
       <Typography variant="h5" align="center">{t('forecast.windSpeed')}</Typography>
