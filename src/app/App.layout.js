@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
+import { supportedLanguages } from '../i18n';
 
 import {
   AppBar,
@@ -129,7 +130,7 @@ const AppLayout = ({ heading, children }) => {
   const dispatch = useDispatch();
   const [isLanguageDialogOpened, setIsLanguageDialogOpened] = useState(false);
   const isDrawerOpened = useSelector((state) => state.app.isDrawerOpened);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <div className={classes.root}>
@@ -188,7 +189,7 @@ const AppLayout = ({ heading, children }) => {
                         ) : (null)
                       }
 
-                      <ListItemText  primary={drawerItemText} />
+                      <ListItemText primary={drawerItemText} />
                     </ListItem>
                   </Tooltip>
                 </Link>
@@ -218,8 +219,18 @@ const AppLayout = ({ heading, children }) => {
 
         <DialogContent>
           <List aria-label="choose language">
-            <ListItem button>Български</ListItem>
-            <ListItem button>English</ListItem>
+            {
+              supportedLanguages.map((language) => {
+                return (
+                  <ListItem key={language.key} button onClick={() => {
+                    i18n.changeLanguage(language.key);
+                    setIsLanguageDialogOpened(!isLanguageDialogOpened);
+                  }}>
+                    {language.label}
+                  </ListItem>
+                );
+              })
+            }
           </List>
         </DialogContent>
       </Dialog>
