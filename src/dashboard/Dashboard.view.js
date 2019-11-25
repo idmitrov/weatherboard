@@ -81,7 +81,10 @@ const Dashboard = () => {
             </Grid>
 
             <Grid item xs={12} md={6}>
-              <WeatherWindMeter data={uniqueDaysWind} />
+              <WeatherWindMeter
+                outerRadiusPercentage={70}
+                data={uniqueDaysWind}
+              />
             </Grid>
           </Grid>
         ) : (null)}

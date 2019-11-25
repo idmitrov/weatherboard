@@ -22,7 +22,7 @@ const useStyles = makeStyles(() => {
   };
 });
 
-const WeatherWindMeter = ({ data }) => {
+const WeatherWindMeter = ({ data, outerRadiusPercentage, fill }) => {
   const { t } = useTranslation();
   const classes = useStyles();
 
@@ -39,9 +39,9 @@ const WeatherWindMeter = ({ data }) => {
             startAngle={180}
             endAngle={0}
             data={data}
-            outerRadius="80%"
+            outerRadius={`${outerRadiusPercentage}%`}
             label
-            fill="#8884d8"
+            fill={fill || '#8884d8'}
           />
 
           <Tooltip content={({ payload }) => {
@@ -70,6 +70,8 @@ const WeatherWindMeter = ({ data }) => {
 };
 
 WeatherWindMeter.propTypes = {
+  outerRadiusPercentage: PropTypes.number.isRequired,
+  fill: PropTypes.string,
   data: PropTypes.arrayOf(
     PropTypes.shape({
       deg: PropTypes.number,
