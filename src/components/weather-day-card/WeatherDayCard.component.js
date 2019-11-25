@@ -9,6 +9,7 @@ import {
   Grid,
   Typography,
   IconButton,
+  Tooltip,
 } from '@material-ui/core';
 import { Info } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/styles';
@@ -81,9 +82,11 @@ const WeatherDayCard = ({ date, description, temperature, minTemperature, maxTem
             </Typography>
           </Grid>
 
-          <IconButton className={classes.moreButton} onClick={() => setIsOverlayVisible(!isOverlayVisible)}>
-            <Info />
-          </IconButton>
+          <Tooltip title={t(`${isOverlayVisible ? 'global.hide' : 'global.more' }`)} placement="top">
+            <IconButton className={classes.moreButton} onClick={() => setIsOverlayVisible(!isOverlayVisible)}>
+              <Info />
+            </IconButton>
+          </Tooltip>
         </Grid>
       </CardContent>
 

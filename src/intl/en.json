@@ -1,6 +1,8 @@
 {
   "en-US": {
     "translation": {
+      "global.hide": "Hide",
+      "global.more": "More",
       "date.ddmmyy": "{{date}}/{{month}}/{{year}}",
       "week.dayName.0": "Sunday",
       "week.dayName.1": "Monday",
