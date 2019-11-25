@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { useTranslation } from 'react-i18next';
+import { Grid } from '@material-ui/core';
 
 import Carousel from "../components/carousel/Carousel.component";
-import { fetchForecastForFiveDays, setForecastForFiveDays } from './Dashboard.actions';
 import WeatherDayCard from '../components/weather-day-card/WeatherDayCard.component';
 import WeatherCityBar from '../components/weather-city-bar/WeatherCityBar.component';
 import WeatherWindMeter from '../components/weather-wind-meter/WeatherWindMeter.component';
-import { Grid } from '@material-ui/core';
+
+import { fetchForecastForFiveDays, setForecastForFiveDays } from './Dashboard.actions';
 
 const filterUniqueDays = (days) => {
   const uniqueDays = days.reduce((daysMerge, day) => {
@@ -68,10 +68,13 @@ const Dashboard = () => {
                       <WeatherDayCard
                         key={index}
                         temperature={currentDay.main.temp}
+                        minTemperature={currentDay.main.temp_min}
+                        maxTemperature={currentDay.main.temp_max}
+                        humidity={currentDay.main.humidity}
                         date={currentDayDate}
                         description={currentDayWeather.main}
-                        iconName={currentDayWeather.icon}
-                      />
+                        iconName={currentDayWeather.icon}>
+                      </WeatherDayCard>
                     );
                   })
                 }

@@ -21,7 +21,10 @@
       "forecast.description.thunderstorm": "Thunder storm",
       "forecast.description.mist": "Mist",
       "forecast.description.fog": "Fog",
-      "forecast.windSpeed": "Wind speed"
+      "forecast.windSpeed": "Wind speed",
+      "forecast.min": "Min",
+      "forecast.max": "Max",
+      "forecast.humidity": "Humidity"
     }
   }
 }

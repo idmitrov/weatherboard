@@ -21,7 +21,10 @@
       "forecast.description.thunderstorm": "Гръмотевици",
       "forecast.description.mist": "Мъгла",
       "forecast.description.fog": "Мъгла",
-      "forecast.windSpeed": "Скорост на вятъра"
+      "forecast.windSpeed": "Скорост на вятъра",
+      "forecast.min": "Минимална",
+      "forecast.max": "Максимална",
+      "forecast.humidity": "Влажност"
     }
   }
 }
