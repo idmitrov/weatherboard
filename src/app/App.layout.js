@@ -30,7 +30,7 @@ import { useTranslation } from 'react-i18next';
 import { setDrawerOpened } from './App.actions';
 import { routes } from './App.routes';
 
-const drawerWidth = 240;
+const drawerWidth = 300;
 
 const useStyles = makeStyles((theme) => {
   return {
